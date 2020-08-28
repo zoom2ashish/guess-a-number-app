@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import defaultStyles from '../constants/default-styles';
 import MainButton from '../components/MainButton';
 import { Ionicons } from '@expo/vector-icons';
+import ScreenOrientation from 'expo-screen-orientation';
 
 /**
 |--------------------------------------------------
@@ -45,6 +46,8 @@ const GameScreen = (props: GuesScreenProps) => {
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
   const {userChoice, onEndGame } = props;
+
+  // ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
 
   useEffect(() => {
     const updateLayout = () => {
