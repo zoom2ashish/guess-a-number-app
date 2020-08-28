@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { Alert, Button, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Dimensions } from 'react-native';
+
 import Card from '../components/Card';
-import Colors from '../constants/colors';
 import Input from '../components/Input';
-import NumberContainer from '../components/NumberContainer';
-import defaultStyles from '../constants/default-styles';
 import MainButton from '../components/MainButton';
+import NumberContainer from '../components/NumberContainer';
+import Colors from '../constants/colors';
+import defaultStyles from '../constants/default-styles';
 
 export type StartGameProps = {
   onStartGame: (value: number | undefined) => void;
@@ -102,8 +103,9 @@ const styles = StyleSheet.create({
     ...defaultStyles.titleText18
   },
   inputContainer: {
-    width: 300,
-    maxWidth: '80%',
+    width: "90%",
+    maxWidth: "95%",
+    minWidth: 300,
     alignItems: 'center'
   },
   textInput: {
@@ -117,8 +119,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
   button: {
-    flex: 1,
-    marginHorizontal: 10
+    width: Dimensions.get('window').width / 4
   },
   summaryContainer: {
     marginVertical: 20,

@@ -1,5 +1,5 @@
 import React, { Component, useState, useRef, useEffect, ReactNode } from 'react';
-import { View, Text, StyleSheet, Button, Alert, ScrollView, FlatList, ListRenderItemInfo } from 'react-native';
+import { View, Text, StyleSheet, Button, Alert, ScrollView, FlatList, ListRenderItemInfo, Dimensions } from 'react-native';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
 import defaultStyles from '../constants/default-styles';
@@ -75,12 +75,12 @@ const GameScreen = (props: GuesScreenProps) => {
       <Text style={defaultStyles.titleText18}>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-      <MainButton onPress={() => nextGuessHandler("lower")}>
-        <Ionicons name="md-remove"  size={24} color="white"/>
-      </MainButton>
-      <MainButton onPress={() => nextGuessHandler("greater")}>
-        <Ionicons name="md-add"  size={24} color="white"/>
-      </MainButton>
+        <MainButton onPress={() => nextGuessHandler("lower")}>
+          <Ionicons name="md-remove"  size={24} color="white"/>
+        </MainButton>
+        <MainButton onPress={() => nextGuessHandler("greater")}>
+          <Ionicons name="md-add"  size={24} color="white"/>
+        </MainButton>
       </Card>
       <View style={styles.listContainer}>
         {/* <ScrollView contentContainerStyle={styles.list}>
@@ -105,12 +105,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
+    marginTop: Dimensions.get('window').height > 600 ? 20 : 10,
     width: 350,
     maxWidth: '90%'
   },
   listContainer: {
-    width: "80%",
+    width: Dimensions.get('window').width > 500 ? "60%" : "90%",
     marginVertical: 15,
     flex: 1
   },
